@@ -13,16 +13,16 @@ keymap("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 keymap("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Resize windows
-keymap('n', '<M-k>', ':resize +2<CR>')
-keymap('n', '<M-j>', ':resize -2<CR>')
-keymap('n', '<M-l>', ':vertical resize -2<CR>')
-keymap('n', '<M-h>', ':vertical resize +2<CR>')
-
+keymap("n", "<M-k>", ":resize +2<CR>")
+keymap("n", "<M-j>", ":resize -2<CR>")
+keymap("n", "<M-l>", ":vertical resize -2<CR>")
+keymap("n", "<M-h>", ":vertical resize +2<CR>")
 
 -- Buffer navigation
 keymap("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
 keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer" })
+keymap("n", "<C-x>", ":bdelete<CR>", { desc = "Close buffer" })
 
 -- Move lines up/down
 keymap("v", "<S-J>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
@@ -31,7 +31,6 @@ keymap("v", "<S-K>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
 
 -- Keep cursor centered
 --keymap("n", "<C-d>", "<C-d>zz", opts)
@@ -52,11 +51,17 @@ keymap("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
 keymap("i", "<C-[>", "<ESC>", opts)
 keymap("t", "<C-[>", "<ESC>", opts)
 
-
+-- Quickfix list
+keymap("n", "<leader>qo", ":copen<CR>", { desc = "Open quickfix list" })
+keymap("n", "<leader>qq", ":cclose<CR>", { desc = "Close quickfix list" })
+keymap("n", "<leader>qn", ":cnext<CR>", { desc = "Next quickfix item" })
+keymap("n", "<leader>qp", ":cprev<CR>", { desc = "Previous quickfix item" })
+keymap("n", "<leader>qf", ":cfdo ", { desc = "Execute vim command for each file in quickfix" })
+keymap("n", "<leader>qb", ":cfdo !bash -c ", { desc = "Execute bash command for each file in quickfix" })
 
 -- terminal
-keymap('n', '<leader>t', '<Cmd>ToggleTerm<CR>')  -- Переключить терминал
-keymap('n', '<leader>tv', '<Cmd>ToggleTerm direction=vertical<CR>')  -- Вертикальный
-keymap('n', '<leader>tf', '<Cmd>TermFloatHere<CR>')
-keymap('n', '<leader>ts', '<Cmd>TermSelect<CR>', { desc = "Select terminal" })
-keymap('v', 'tr', ':TermRun<CR>', { desc = "Run selection in terminal" })
+keymap("n", "<leader>t", "<Cmd>ToggleTerm<CR>") -- Переключить терминал
+keymap("n", "<leader>tv", "<Cmd>ToggleTerm direction=vertical<CR>") -- Вертикальный
+keymap("n", "<leader>tf", "<Cmd>TermFloatHere<CR>")
+keymap("n", "<leader>ts", "<Cmd>TermSelect<CR>", { desc = "Select terminal" })
+keymap("v", "tr", ":TermRun<CR>", { desc = "Run selection in terminal" })

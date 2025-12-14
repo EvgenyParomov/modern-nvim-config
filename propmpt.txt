@@ -1,0 +1,3 @@
+[Neo-tree ERROR] Error opening file: vim/_editor.lua:0: nvim_exec2()[1]..BufReadPre Autocommands for "*": Vim(append):Installation not possible: ...vim/lazy/nvim-treesitter/lua/nvim-treesitter/install.lua:87: Parser not av
+ailable for language "jsx"
+

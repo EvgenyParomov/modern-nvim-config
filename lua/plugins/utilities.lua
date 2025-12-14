@@ -1,4 +1,4 @@
- -- Utility plugins
+-- Utility plugins
 return {
 	-- Status line
 	{
@@ -94,5 +94,4 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = true,
 	},
-
 }

@@ -47,9 +47,9 @@ return {
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open diff view" },
-			{ "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Close diff view" },
-			{ "<leader>gdh", "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
+			{ "<leader>dv", "<cmd>DiffviewOpen<cr>", desc = "Open diff view" },
+			{ "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "Close diff view" },
+			{ "<leader>df", "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
 		},
 		config = function()
 			require("diffview").setup({

@@ -15,7 +15,7 @@ return {
 		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
 		{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
 		{ "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git commits" },
-		{ "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Git branches" },
+		{ "<leader>fbr", "<cmd>Telescope git_branches<cr>", desc = "Git branches" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -33,6 +33,17 @@ return {
 				find_files = {
 					hidden = true,
 					file_ignore_patterns = { "node_modules", ".git/", "dist/", "build/" },
+				},
+				live_grep = {
+					file_ignore_patterns = { "node_modules", ".git/", "dist/", "build/" },
+				},
+			},
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
 				},
 			},
 		})
