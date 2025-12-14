@@ -26,7 +26,7 @@ return {
 			{ "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
 			{ "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
 			{
-				"<leader>as",
+				"<M-,>",
 				"<cmd>ClaudeCodeTreeAdd<cr>",
 				desc = "Add file",
 				ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
@@ -47,11 +47,17 @@ return {
 					height = 0.9,
 					provider = "snacks",
 					keys = {
-						{
+						claude_hide = {
 							"<M-.>",
 							function(self)
 								self:hide()
 							end,
+							mode = "t",
+							desc = "Hide",
+						},
+						clear_backspace = {
+							"<C-[>",
+							"<C-\\><C-n>",
 							mode = "t",
 							desc = "Hide",
 						},
@@ -61,21 +67,6 @@ return {
 		},
 		config = function(_, opts)
 			require("claudecode").setup(opts)
-
-			function _G.set_claudecode_terminal_keymaps()
-				local keymaps = { buffer = 0 }
-				vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], keymaps)
-				-- C-w sends the actual C-w character to the terminal (delete word)
-				vim.keymap.set("t", "<C-w>", function()
-					local chan = vim.bo.channel
-					if chan then
-						vim.fn.chansend(chan, "\23") -- ASCII 23 is C-w
-					end
-				end, keymaps)
-			end
-
-			-- Apply keymaps to Claude Code terminal windows
-			vim.cmd("autocmd! TermOpen term://*claudecode* lua set_claudecode_terminal_keymaps()")
 		end,
 	},
 }
