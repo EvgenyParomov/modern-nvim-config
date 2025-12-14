@@ -14,8 +14,8 @@ return {
 		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
 		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
 		{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-		{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git commits" },
-		{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git branches" },
+		{ "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git commits" },
+		{ "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Git branches" },
 	},
 	config = function()
 		local telescope = require("telescope")
